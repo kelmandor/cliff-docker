@@ -1,26 +1,26 @@
-# cd conf
-# rm tomcat-users.xml
-# wget https://raw.githubusercontent.com/ahalterman/CLIFF-up/master/tomcat-users.xml
-# $CATALINA_HOME/bin/startup.sh
+cd conf
+rm tomcat-users.xml
+wget https://raw.githubusercontent.com/ahalterman/CLIFF-up/master/tomcat-users.xml
+$CATALINA_HOME/bin/startup.sh
 
-# echo "Getting CLIFF..."
-# echo "  downloading Cliff WAR file from GitHub"
-# cd; wget https://github.com/mitmedialab/CLIFF/releases/download/v2.4.2/cliff-2.4.2.war
-# mv cliff-2.4.2.war /usr/local/tomcat/webapps/
-# echo "  done (copied /usr/local/tomcat/webapps/)"
+echo "Getting CLIFF..."
+echo "  downloading Cliff WAR file from GitHub"
+cd; wget https://github.com/mitmedialab/CLIFF/releases/download/v2.4.2/cliff-2.4.2.war
+mv cliff-2.4.2.war /usr/local/tomcat/webapps/
+echo "  done (copied /usr/local/tomcat/webapps/)"
 
-# echo "Building Index..."
-# echo "  downloading CLAVIN from GitHub"
-# cd; git clone https://github.com/Berico-Technologies/CLAVIN.git
+echo "Building Index..."
+echo "  downloading CLAVIN from GitHub"
+cd; git clone https://github.com/Berico-Technologies/CLAVIN.git
 
-# echo "  downloading latestplacenames file from Geonames"
-# cd CLAVIN
-# wget http://download.geonames.org/export/dump/allCountries.zip
-# unzip allCountries.zip
-# rm allCountries.zip
+echo "  downloading latestplacenames file from Geonames"
+cd CLAVIN
+wget http://download.geonames.org/export/dump/allCountries.zip
+unzip allCountries.zip
+rm allCountries.zip
 
-# echo "  compiling CLAVIN"
-# mvn compile
+echo "  compiling CLAVIN"
+mvn compile
 
 # echo "  building Lucene index of placenames (takes up to 20 mins)"
 # MAVEN_OPTS="-Xmx4g" mvn exec:java -Dexec.mainClass="com.bericotech.clavin.index.IndexDirectoryBuilder"
