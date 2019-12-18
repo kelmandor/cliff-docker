@@ -11,5 +11,7 @@ RUN apt-get install -y git openjdk-7-jdk maven
 
 EXPOSE 8080
 
-RUN chmod -x /src/launch.sh
-CMD sh /src/launch.sh
+# RUN chmod -x /src/launch.sh
+# CMD sh /src/launch.sh
+RUN chmod -x /src/launch_downloaded.sh
+# CMD sh /src/launch_downloaded.sh
