@@ -9,9 +9,19 @@ RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://ar
 RUN apt-get update
 RUN apt-get install -y git openjdk-7-jdk maven
 
+# COPY index_directory.tgz .
+RUN wget https://dk-amz.s3.amazonaws.com/index_directory.tgz
+RUN mkdir -p /etc/cliff2
+RUN tar xvf /src/index_directory.tgz --directory /etc/cliff2
+
 EXPOSE 8080
 
 # RUN chmod -x /src/launch.sh
 # CMD sh /src/launch.sh
-RUN chmod -x /src/launch_downloaded.sh
+# RUN chmod -x /src/launch_downloaded.sh
 # CMD sh /src/launch_downloaded.sh
+
+RUN chmod -x /src/local_launch.sh
+CMD sh /src/local_launch.sh
+
+# /Users/dklmn/Library/Containers/com.docker.docker/Data/vms/0
