@@ -12,7 +12,7 @@ RUN apt-get install -y git openjdk-7-jdk maven
 # COPY index_directory.tgz .
 RUN wget https://dk-amz.s3.amazonaws.com/index_directory.tgz
 RUN mkdir -p /etc/cliff2
-RUN tar xvf /src/index_directory.tgz --directory /etc/cliff2
+RUN tar xvf index_directory.tgz --directory /etc/cliff2
 
 EXPOSE 8080
 
